@@ -1,6 +1,6 @@
 // InstagramのクライアントIDと書き換えてください
 let client_id = 'YOUR_INSTAGRAM_CLIENT_ID';
-let redirec_uri = 'YOUR_REDIRECT_URL';
+let redirect_uri = 'YOUR_REDIRECT_URL';
 
 let authUrl = `https://www.instagram.com/oauth/authorize/?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&scope=public_content`;
 let photoUrl = 'https://api.instagram.com/v1/users/self/media/recent/';
@@ -9,7 +9,6 @@ ons.ready(function() {
   console.log("Onsen UI is ready!");
   
   $('#auth').on('click', (e) => {
-    e.preventDefault();
     let authWindow_loadStartHandler = function(e) {
       // Instagramからaccess_tokenが送られれば成功
       if (m = e.url.match(/#access_token=(.*?)$/)) {
